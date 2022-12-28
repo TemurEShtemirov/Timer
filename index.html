@@ -8,44 +8,94 @@
     <title>Timer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <link rel="shortcut icon" href="/img/clock.gif"  type="image/x-icon">
-        <link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" href="/img/clock.gif" type="image/x-icon">
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        /* Center the loader */
+        #loader {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 1;
+          width: 120px;
+          height: 120px;
+          margin: -76px 0 0 -76px;
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+        }
+        
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        /* Add animation to "page content" */
+        .animate-bottom {
+          position: relative;
+          -webkit-animation-name: animatebottom;
+          -webkit-animation-duration: 1s;
+          animation-name: animatebottom;
+          animation-duration: 1s
+        }
+        
+        @-webkit-keyframes animatebottom {
+          from { bottom:-100px; opacity:0 } 
+          to { bottom:0px; opacity:1 }
+        }
+        
+        @keyframes animatebottom { 
+          from{ bottom:-100px; opacity:0 } 
+          to{ bottom:0; opacity:1 }
+        }
+        
+        #myDiv {
+          display: none;
+          text-align: center;
+        }
+        </style>
 </head>
-
-<body class="bg-dark container">
+<body class="bg-dark container" onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
     <div class="text-center text-warning">
         <h1 class="text-center text-warning h1">Before the new year :</h1>
         <!-- Display the countdown timer in an element -->
         <p id="demo"></p>
-        <a href="https://www.instagram.com/user_name_developer/"><img src="/img/instagram.ico" width="45px" height="45px" alt="Instagram"></a>
-        <a href="https://twitter.com/TEshtemirov"><img src="/img/twitter.ico" width="45px" height="45px" alt="Twitter"></a>
-    <h3>Site Autothor : <i>Eshtemirov Temur</i></h3>
-    </div>
- 
+        <a href="https://www.instagram.com/user_name_developer/"><img src="/img/instagram.ico" width="45px"
+                height="45px" alt="Instagram"></a>
+        <a href="https://twitter.com/TEshtemirov"><img src="/img/twitter.ico" width="45px" height="45px"
+            alt="Twitter"></a>
+            <h3>Site Autothor : <i>Eshtemirov Temur</i></h3>
+        </div>
 
+    </div>
+
+        <script src="/js/main.js"></script>
     <script>
         // Set the date we're counting down to
         var countDownDate = new Date("Dec 31, 2022 23:59:00").getTime();
-
         // Update the count down every 1 second
         var x = setInterval(function () {
-
             // Get today's date and time
             var now = new Date().getTime();
-
             // Find the distance between now and the count down date
             var distance = countDownDate - now;
-
             // Time calculations for days, hours, minutes and seconds
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
             // Display the result in the element with id="demo"
             document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
                 minutes + "m " + seconds + "s ";
-
             // If the count down is finished, write some text
             if (distance < 0) {
                 clearInterval(x);
@@ -53,12 +103,9 @@
             }
         }, 1000);
     </script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-
 </body>
-
 </html>
