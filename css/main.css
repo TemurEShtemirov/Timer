@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 div{
-    margin-top: 300px;
+    margin-top: 150px;
     font-size:100px;
 }
 .h1{
     font-family: cursive;
 }
-p{
+#demo{
     font-family: cursive;
+    font-size: 100px;
 }
